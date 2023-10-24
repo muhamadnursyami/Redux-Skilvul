@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Counter from "./components/Counter"
+import Cart from "./components/cart"
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <nav style={{textAlign:"center"}}>
+      <Cart/>
+     </nav>
+     {/* ada masalah ketika membuat 2 counter sekaligus
+      maka counter buku ketika diklik, maka counter pena pun 
+      mengikuti nilai dari si counter buku. maka harus 
+      disolve  setiap counter dibedain, tetapi di cart nya itu
+      mengikuti 2 couter yaitu buku dan pena berapa pun jumlahnya,
+      dengan menggunakan tambahan state sehingga
+      perubahan secara keselurahan akan nampak 
+      di cart komponen tetapi di card counter tidak akan nampak
+      karena data ketika user diklik akan di tampung kedalam state
+      tidak seperti awal tadi , datanya itu langsung di ambil dari
+      perubahan dari function counterReducers.
+     */}
+     <div style={{textAlign:"center"}}>
+      <span>buku :</span>
+        <Counter/>
+     </div>
+     <div style={{textAlign:"center"}}>
+      <span>pena :</span>
+        <Counter/>
+     </div>
     </>
   )
 }
