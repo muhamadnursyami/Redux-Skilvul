@@ -1,8 +1,14 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteTodo } from "../redux/reducer/reducer";
 
 export default function Todo() {
+  const dispatch = useDispatch();
   const {todos} = useSelector((state) => state.todoReducers);
 console.log(todos);
+
+const handleDelete = (id) => {
+  dispatch(deleteTodo(id))
+}
   return (
     <div>
      
@@ -11,7 +17,7 @@ console.log(todos);
         <div key={item.id}>
         <span> {item.value} </span>
         <button>Edit</button>
-        <button>❌</button>
+        <button onClick={()=> handleDelete(item.id)}>❌</button>
       </div>
       )}
       

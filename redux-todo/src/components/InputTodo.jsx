@@ -1,16 +1,21 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/reducer/reducer";
 
 
 export default function InputTodo() {
+  const dispatch= useDispatch();
     const [inputan, setinputan] = useState("");
 
     function handleInput (event) {
       setinputan(event.target.value);
     }
+
+
     function handleSubmit (event) {
-event.preventDefault();
-console.log(inputan);
-setinputan("");
+    event.preventDefault();
+    dispatch(addTodo(inputan));
+    setinputan("");
     }
   return (
     <div> 
