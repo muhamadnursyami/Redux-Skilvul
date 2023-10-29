@@ -1,14 +1,10 @@
-import InputTodo from "./components/InputTodo"
-import Todo from "./components/Todo"
+import TodoList from "./components/TodoList"
 
 
 function App() {
- 
-
   return (
     <>
-      <InputTodo/>
-      <Todo/>
+      <TodoList />
     </>
   )
 }
